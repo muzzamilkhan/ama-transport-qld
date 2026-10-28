@@ -315,7 +315,7 @@
           <span class="availability"><span class="pulse" aria-hidden="true"></span>3 trucks available for work now</span>
         </div>
         <div class="hero-visual">
-          <div data-truck="9.5" data-scale="1.6" data-hero></div>
+          <div data-truck="9.5" data-scale="1.6"></div>
         </div>
       </div>
       <div class="road" aria-hidden="true"></div>
@@ -404,7 +404,7 @@
             <div class="spec"><span>Best for</span><strong>Long loads</strong></div>
           </article>
           <article class="truck-card">
-            <div class="truck-stage"><div data-truck="9.5" data-heavy></div></div>
+            <div class="truck-stage"><div data-truck="9.5"></div></div>
             <div class="tonnes">12<small>tonne</small></div>
             <div class="spec"><span>Body length</span><strong>9.5 m</strong></div>
             <div class="spec"><span>Best for</span><strong>Heavy freight</strong></div>
@@ -490,10 +490,9 @@
 
   <script>
     // Side-view rigid truck, drawn to scale from body length (metres).
-    function truckSVG(lengthM, heavy, scale) {
+    function truckSVG(lengthM, scale) {
       const B = Math.round(lengthM * 20), W = B + 44, H = 66;
-      // Rear axle sits about a third of the way in from the back of the body; front axle under the cab.
-      const rear = Math.round(B * 0.34);
+      // Wheels near the back and front of the tub, plus one under the cab.
       const wheel = (x) => `<circle class="tyre" cx="${x}" cy="53" r="11" fill="#1d1d1d"/><circle cx="${x}" cy="53" r="5" fill="#9a9a9a"/><circle cx="${x}" cy="53" r="1.8" fill="#1d1d1d"/>`;
       return `<svg class="truck" viewBox="0 0 ${W} ${H}" width="${W * (scale || 1)}" role="img" aria-label="${lengthM} metre rigid truck">
         <rect x="0" y="4" width="${B}" height="40" rx="2" fill="var(--truck-body)" stroke="var(--truck-trim)" stroke-opacity=".15"/>
@@ -502,11 +501,11 @@
         <path d="M${B + 3} 46V17q0-5 5-5h17l15 17v17z" fill="var(--truck-cab)"/>
         <path d="M${B + 21} 15h4l11 13h-15z" fill="var(--truck-trim)" fill-opacity=".85"/>
         <rect x="${B + 8}" y="31" width="7" height="2" rx="1" fill="var(--truck-trim)" fill-opacity=".6"/>
-        ${heavy ? wheel(rear - 12) + wheel(rear + 12) : wheel(rear)}${wheel(B + 22)}
+        ${wheel(Math.round(B * 0.16))}${wheel(Math.round(B * 0.84))}${wheel(B + 22)}
       </svg>`;
     }
     document.querySelectorAll('[data-truck]').forEach(el => {
-      el.outerHTML = truckSVG(parseFloat(el.dataset.truck), el.hasAttribute('data-heavy') || el.hasAttribute('data-hero'), parseFloat(el.dataset.scale) || 1);
+      el.outerHTML = truckSVG(parseFloat(el.dataset.truck), parseFloat(el.dataset.scale) || 1);
     });
 
     // Quote form -> pre-filled email
