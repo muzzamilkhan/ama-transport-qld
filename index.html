@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-AU" data-theme="highway">
+<html lang="en-AU">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,12 +7,10 @@
   <meta name="description" content="Family-owned truck delivery and logistics in Brisbane. 6 to 12 tonne trucks available now. Call 0419 661 711." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Theme preview loads every theme's fonts. Once a theme is chosen, trim this to just its two families. -->
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ---------- Themes ---------- */
-    :root,
-    [data-theme="highway"] {
+    /* ---------- Theme: Highway ---------- */
+    :root {
       --bg: #f4f4f1;
       --surface: #ffffff;
       --surface-2: #e9e9e3;
@@ -37,84 +35,6 @@
       --head-transform: uppercase;
       --head-spacing: 0.01em;
       --head-weight: 800;
-    }
-    [data-theme="fleet"] {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --surface-2: #e7ecf3;
-      --text: #0b1f3a;
-      --muted: #4a5b73;
-      --line: #d5dde8;
-      --accent: #f26b1d;
-      --accent-ink: #ffffff;
-      --accent-text: #c2500f;
-      --dark: #0b2545;
-      --dark-text: #ffffff;
-      --dark-muted: #b4c3d8;
-      --hero-bg: #0b2545;
-      --hero-text: #ffffff;
-      --hero-muted: #b4c3d8;
-      --truck-body: #ffffff;
-      --truck-cab: #f26b1d;
-      --truck-trim: #0b2545;
-      --radius: 10px;
-      --font-head: "Montserrat", system-ui, sans-serif;
-      --font-body: "Inter", system-ui, sans-serif;
-      --head-transform: none;
-      --head-spacing: -0.01em;
-      --head-weight: 800;
-    }
-    [data-theme="outback"] {
-      --bg: #f7f1e8;
-      --surface: #fffbf5;
-      --surface-2: #efe4d4;
-      --text: #2b211b;
-      --muted: #6b5b4e;
-      --line: #e2d5c2;
-      --accent: #b4472a;
-      --accent-ink: #ffffff;
-      --accent-text: #9c3b21;
-      --dark: #2f4a3a;
-      --dark-text: #fbf6ee;
-      --dark-muted: #c6d3c8;
-      --hero-bg: #efe4d4;
-      --hero-text: #2b211b;
-      --hero-muted: #6b5b4e;
-      --truck-body: #2f4a3a;
-      --truck-cab: #b4472a;
-      --truck-trim: #fbf6ee;
-      --radius: 14px;
-      --font-head: "Fraunces", Georgia, serif;
-      --font-body: "Work Sans", system-ui, sans-serif;
-      --head-transform: none;
-      --head-spacing: -0.015em;
-      --head-weight: 700;
-    }
-    [data-theme="clean"] {
-      --bg: #ffffff;
-      --surface: #f5f8f7;
-      --surface-2: #eaf0ee;
-      --text: #0e1a16;
-      --muted: #5a6a64;
-      --line: #dde5e2;
-      --accent: #0f766e;
-      --accent-ink: #ffffff;
-      --accent-text: #0f766e;
-      --dark: #0e1a16;
-      --dark-text: #ffffff;
-      --dark-muted: #a9b8b2;
-      --hero-bg: #ffffff;
-      --hero-text: #0e1a16;
-      --hero-muted: #5a6a64;
-      --truck-body: #0e1a16;
-      --truck-cab: #0f766e;
-      --truck-trim: #ffffff;
-      --radius: 18px;
-      --font-head: "Space Grotesk", system-ui, sans-serif;
-      --font-body: "Inter", system-ui, sans-serif;
-      --head-transform: none;
-      --head-spacing: -0.03em;
-      --head-weight: 700;
     }
 
     /* ---------- Base ---------- */
@@ -202,9 +122,7 @@
 
     /* ---------- Hero ---------- */
     .hero { background: var(--hero-bg); color: var(--hero-text); padding: clamp(56px, 8vw, 96px) 0 0; overflow: hidden; }
-    .hero .eyebrow { color: var(--accent-text); }
-    [data-theme="highway"] .hero .eyebrow,
-    [data-theme="fleet"] .hero .eyebrow { color: var(--accent); }
+    .hero .eyebrow { color: var(--accent); }
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: end; }
     .hero-copy { padding-bottom: clamp(40px, 6vw, 72px); }
     .hero p.lede { color: var(--hero-muted); }
@@ -277,8 +195,6 @@
     .band .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
     .band p { color: var(--dark-muted); font-size: 1.1rem; margin: 0; }
     .band .eyebrow { color: var(--accent); }
-    [data-theme="outback"] .band .eyebrow { color: #f0b49f; }
-    [data-theme="clean"] .band .eyebrow { color: #5eead4; }
     .band-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
     @media (max-width: 860px) { .band .wrap { grid-template-columns: 1fr; } .band-actions { justify-content: flex-start; } }
 
@@ -361,33 +277,6 @@
     footer strong { color: var(--dark-text); }
     footer a { color: var(--dark-text); }
 
-    /* ---------- Theme picker (preview only — remove before launch) ---------- */
-    .theme-picker {
-      position: fixed; right: 16px; bottom: 16px; z-index: 100;
-      background: #ffffff; color: #111;
-      border: 1px solid #ddd; border-radius: 14px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.18);
-      padding: 14px; width: 260px;
-      font: 14px/1.4 system-ui, sans-serif;
-    }
-    .theme-picker header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .theme-picker header strong { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
-    .theme-picker header button { border: 0; background: none; font-size: 18px; cursor: pointer; color: #666; padding: 0 4px; }
-    .theme-picker .opts { display: grid; gap: 6px; }
-    .theme-picker .opt {
-      display: grid; grid-template-columns: 46px 1fr; gap: 10px; align-items: center;
-      padding: 8px; border-radius: 10px; border: 2px solid transparent;
-      background: #f5f5f5; cursor: pointer; text-align: left; font: inherit; color: inherit;
-    }
-    .theme-picker .opt[aria-pressed="true"] { border-color: #111; background: #fff; }
-    .theme-picker .sw { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid #0001; }
-    .theme-picker .sw i { flex: 1; }
-    .theme-picker .opt b { display: block; font-size: 14px; }
-    .theme-picker .opt span { font-size: 12px; color: #666; }
-    .theme-picker.min { width: auto; padding: 10px 14px; cursor: pointer; }
-    .theme-picker.min .opts, .theme-picker.min header button { display: none; }
-    .theme-picker.min header { margin: 0; }
-    @media (max-width: 560px) { .theme-picker { left: 16px; right: 16px; width: auto; } .theme-picker.min { left: auto; } }
   </style>
 </head>
 <body>
@@ -598,17 +487,6 @@
     </div>
   </footer>
 
-  <!-- Theme picker: preview only, delete this block and its CSS/JS once a theme is chosen -->
-  <aside class="theme-picker" id="theme-picker" aria-label="Theme preview">
-    <header><strong>Theme options</strong><button type="button" id="tp-min" aria-label="Minimise">–</button></header>
-    <div class="opts">
-      <button class="opt" data-set="highway"><span class="sw"><i style="background:#141414"></i><i style="background:#ffc107"></i><i style="background:#f4f4f1"></i></span><span><b>Highway</b><span>Bold, industrial, hi-vis</span></span></button>
-      <button class="opt" data-set="fleet"><span class="sw"><i style="background:#0b2545"></i><i style="background:#f26b1d"></i><i style="background:#f5f7fa"></i></span><span><b>Fleet</b><span>Corporate, trustworthy</span></span></button>
-      <button class="opt" data-set="outback"><span class="sw"><i style="background:#2f4a3a"></i><i style="background:#b4472a"></i><i style="background:#f7f1e8"></i></span><span><b>Outback</b><span>Warm, family, local</span></span></button>
-      <button class="opt" data-set="clean"><span class="sw"><i style="background:#0e1a16"></i><i style="background:#0f766e"></i><i style="background:#ffffff"></i></span><span><b>Clean</b><span>Modern, minimal</span></span></button>
-    </div>
-  </aside>
-
   <script>
     // Side-view rigid truck, drawn to scale from body length (metres).
     function truckSVG(lengthM, heavy, scale) {
@@ -644,21 +522,6 @@
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme preview
-    const picker = document.getElementById('theme-picker');
-    function setTheme(name) {
-      document.documentElement.dataset.theme = name;
-      picker.querySelectorAll('.opt').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === name));
-      try { localStorage.setItem('ama-theme', name); } catch (_) {}
-    }
-    picker.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.set)));
-    document.getElementById('tp-min').addEventListener('click', (e) => { e.stopPropagation(); picker.classList.add('min'); });
-    picker.addEventListener('click', () => picker.classList.remove('min'));
-    if (matchMedia('(max-width: 560px)').matches) picker.classList.add('min');
-    let initial = new URLSearchParams(location.search).get('theme');
-    if (!initial) { try { initial = localStorage.getItem('ama-theme'); } catch (_) {} }
-    setTheme(['highway', 'fleet', 'outback', 'clean'].includes(initial) ? initial : 'highway');
   </script>
 </body>
 </html>
