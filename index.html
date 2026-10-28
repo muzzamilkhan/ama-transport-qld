@@ -76,7 +76,7 @@
       color: var(--accent-text);
       margin-bottom: 14px;
     }
-    .lede { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+    .lede { font-size: 1.15rem; color: var(--muted); max-width: 60ch; text-wrap: pretty; }
 
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -323,7 +323,7 @@
 
     <section class="stats" aria-label="At a glance">
       <div class="wrap">
-        <div class="stat"><strong>4 trucks</strong><span>in our fleet</span></div>
+        <div class="stat"><strong>Brisbane</strong><span>based in Marsden</span></div>
         <div class="stat"><strong>6–12 t</strong><span>load capacity</span></div>
         <div class="stat"><strong>Up to 9.5 m</strong><span>body length</span></div>
         <div class="stat"><strong>Family</strong><span>owned &amp; operated</span></div>
@@ -382,7 +382,7 @@
         <div class="section-head">
           <span class="eyebrow">Our fleet</span>
           <h2>The right truck for the load.</h2>
-          <p class="lede">Four rigid trucks from 6 to 12 tonnes, so you only pay for the size you need.</p>
+          <p class="lede">Four flat tray rigid trucks from 6 to 12 tonnes, so you only pay for the size you need.</p>
         </div>
         <div class="fleet-grid">
           <article class="truck-card">
@@ -489,14 +489,15 @@
   </footer>
 
   <script>
-    // Side-view rigid truck, drawn to scale from body length (metres).
+    // Side-view flat tray rigid truck, drawn to scale from body length (metres).
     function truckSVG(lengthM, scale) {
       const B = Math.round(lengthM * 20), W = B + 44, H = 66;
       // Wheels near the back and front of the tub, plus one under the cab.
       const wheel = (x) => `<circle class="tyre" cx="${x}" cy="53" r="11" fill="#1d1d1d"/><circle cx="${x}" cy="53" r="5" fill="#9a9a9a"/><circle cx="${x}" cy="53" r="1.8" fill="#1d1d1d"/>`;
-      return `<svg class="truck" viewBox="0 0 ${W} ${H}" width="${W * (scale || 1)}" role="img" aria-label="${lengthM} metre rigid truck">
-        <rect x="0" y="4" width="${B}" height="40" rx="2" fill="var(--truck-body)" stroke="var(--truck-trim)" stroke-opacity=".15"/>
-        <rect x="0" y="34" width="${B}" height="4" fill="var(--truck-cab)"/>
+      return `<svg class="truck" viewBox="0 0 ${W} ${H}" width="${W * (scale || 1)}" role="img" aria-label="${lengthM} metre flat tray truck">
+        <rect x="${B - 6}" y="12" width="6" height="24" rx="1" fill="var(--truck-body)" stroke="var(--truck-trim)" stroke-opacity=".25"/>
+        <rect x="0" y="34" width="${B}" height="10" rx="1" fill="var(--truck-body)" stroke="var(--truck-trim)" stroke-opacity=".25"/>
+        <rect x="0" y="40" width="${B}" height="3" fill="var(--truck-cab)"/>
         <rect x="0" y="44" width="${B + 42}" height="5" fill="#2a2a2a"/>
         <path d="M${B + 3} 46V17q0-5 5-5h17l15 17v17z" fill="var(--truck-cab)"/>
         <path d="M${B + 21} 15h4l11 13h-15z" fill="var(--truck-trim)" fill-opacity=".85"/>
