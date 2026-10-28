@@ -138,6 +138,7 @@
     @keyframes pulse { 70% { box-shadow: 0 0 0 10px #22c55e00; } 100% { box-shadow: 0 0 0 0 #22c55e00; } }
     .hero-visual { padding-bottom: 0; }
     .hero-visual .truck { width: 100%; height: auto; margin-bottom: -4px; }
+    .hero .tyre { fill: #3a3a3a; }
     .road { height: 36px; position: relative; background: color-mix(in srgb, var(--hero-text) 10%, transparent); }
     .road::after {
       content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; transform: translateY(-50%);
@@ -491,8 +492,9 @@
     // Side-view rigid truck, drawn to scale from body length (metres).
     function truckSVG(lengthM, heavy, scale) {
       const B = Math.round(lengthM * 20), W = B + 44, H = 66;
-      const rear = Math.round(B * 0.72);
-      const wheel = (x) => `<circle cx="${x}" cy="54" r="8" fill="#1d1d1d"/><circle cx="${x}" cy="54" r="3.2" fill="#9a9a9a"/>`;
+      // Rear axle sits about a third of the way in from the back of the body; front axle under the cab.
+      const rear = Math.round(B * 0.34);
+      const wheel = (x) => `<circle class="tyre" cx="${x}" cy="53" r="11" fill="#1d1d1d"/><circle cx="${x}" cy="53" r="5" fill="#9a9a9a"/><circle cx="${x}" cy="53" r="1.8" fill="#1d1d1d"/>`;
       return `<svg class="truck" viewBox="0 0 ${W} ${H}" width="${W * (scale || 1)}" role="img" aria-label="${lengthM} metre rigid truck">
         <rect x="0" y="4" width="${B}" height="40" rx="2" fill="var(--truck-body)" stroke="var(--truck-trim)" stroke-opacity=".15"/>
         <rect x="0" y="34" width="${B}" height="4" fill="var(--truck-cab)"/>
@@ -500,7 +502,7 @@
         <path d="M${B + 3} 46V17q0-5 5-5h17l15 17v17z" fill="var(--truck-cab)"/>
         <path d="M${B + 21} 15h4l11 13h-15z" fill="var(--truck-trim)" fill-opacity=".85"/>
         <rect x="${B + 8}" y="31" width="7" height="2" rx="1" fill="var(--truck-trim)" fill-opacity=".6"/>
-        ${wheel(rear - 9)}${heavy ? wheel(rear + 9) : ''}${wheel(B + 28)}
+        ${heavy ? wheel(rear - 12) + wheel(rear + 12) : wheel(rear)}${wheel(B + 22)}
       </svg>`;
     }
     document.querySelectorAll('[data-truck]').forEach(el => {
